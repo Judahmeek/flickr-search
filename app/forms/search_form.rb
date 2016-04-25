@@ -1,7 +1,7 @@
 class SearchForm
   include ActiveModel::Model
 
-  attr_reader :search
+  attr_reader :search, :page
 
   def initialize(params={})
     @params = params
@@ -9,7 +9,7 @@ class SearchForm
   end
   
   def results
-    results = flickr.photos.search(tags: @params[:search], per_page: 6)
+    results = flickr.photos.search(tags: @params[:search], per_page: 6, page: @params[:page])
     results.map do |photo|
       info = flickr.photos.getInfo(photo_id: photo.id)
 
