@@ -1,8 +1,10 @@
-<h2>Search for Flickr Photos without signing in!</h2>
-<%= form_for @form, url: search_index_path, method: :get do |f| %>
-  <%= f.text_field :search %>
-  <%= f.hidden_field :page, value: 1 %>
-  <div>
-    <%= f.submit 'Search' %>
-  </div>
+<% cache @form do %>
+  <h2>Search for Flickr Photos without signing in!</h2>
+  <%= form_for @form, url: search_index_path, method: :get do |f| %>
+    <%= f.text_field :search %>
+    <%= f.hidden_field :page, value: 1 %>
+    <div>
+      <%= f.submit 'Search' %>
+    </div>
+  <% end %>
 <% end %>
