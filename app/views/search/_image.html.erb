@@ -1,0 +1,16 @@
+<% cache image do %>
+  <div class="thumbnail">
+    <%= image_tag image.image_url %>
+    <div class="caption">
+      <h4>
+        <%= link_to image.title, search_path(image.id) %>
+        <dl>
+          <dt>Posted by:</dt>
+          <dd><%= image.username %></dd>
+          <dt>Date taken:</dt>
+          <dd><%= image.date_taken %></dd>
+        </dl>
+      </h4>
+    </div>
+  </div>
+<% end %>

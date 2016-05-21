@@ -1,10 +1,12 @@
-<%= image_tag @image.image_url %>
-<div class="panel"></div>
-<dl>
-  <dt>Title:</dt>
-  <dd><%= @image.title %></dd>
-  <dt>Posted by:</dt>
-  <dd><%= @image.username %></dd>
-  <dt>Date taken:</dt>
-  <dd><%= @image.date_taken %></dd>
-</dl>
+<% cache "#{@image.image_url}" do %>
+  <%= image_tag @image.image_url %>
+  <div class="panel"></div>
+  <dl>
+    <dt>Title:</dt>
+    <dd><%= @image.title %></dd>
+    <dt>Posted by:</dt>
+    <dd><%= @image.username %></dd>
+    <dt>Date taken:</dt>
+    <dd><%= @image.date_taken %></dd>
+  </dl>
+<% end %>
