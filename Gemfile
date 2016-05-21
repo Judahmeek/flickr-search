@@ -16,9 +16,6 @@ gem 'dotenv-rails'
 gem 'pg', '~> 0.18'
 gem 'puma'
 
-group :production do
-  gem 'rails_12factor'
-end
 group :development, :test do
   gem 'byebug'
   gem 'binding_of_caller'
@@ -40,4 +37,7 @@ group :test do
   gem 'shoulda-matchers', '~> 3.1'
 end
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+group :production do
+  gem 'rails_12factor'
+  gem 'readthis'
+end
