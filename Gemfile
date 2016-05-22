@@ -16,6 +16,12 @@ gem 'dotenv-rails'
 gem 'pg', '~> 0.18'
 gem 'puma'
 
+gem 'autoprefixer-rails'
+gem 'normalize-rails'
+gem 'bourbon'
+gem 'neat'
+gem 'bitters'
+
 group :development, :test do
   gem 'byebug'
   gem 'binding_of_caller'
