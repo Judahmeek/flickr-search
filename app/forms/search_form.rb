@@ -9,7 +9,7 @@ class SearchForm
   end
   
   def results
-    results = flickr.photos.search(tags: @params[:search], per_page: 6, page: @params[:page])
+    results = Rails.cache.fetch("#{@params[:search]}-#{@params[:page]}-6", expires_in: 3.hours) {flickr.photos.search(tags: @params[:search], per_page: 6, page: @params[:page])}
     results.map do |photo|
       info = flickr.photos.getInfo(photo_id: photo.id)
 
