@@ -1,3 +1,5 @@
 <% cache image.id do %>
-  <%= link_to image_tag(@image.image_url) class: "brick" title: "Title: #{@image.title}&#013;Posted by: #{@image.username}&#013;Date taken: #{@image.date_taken}" search_path(image.id) %>
+ <div class="masonry-brick">
+     <%= link_to image_tag(@image.image_url) title: "Title: #{@image.title}&#013;Posted by: #{@image.username}&#013;Date taken: #{@image.date_taken}" search_path(image.id) %>
+ </div>
 <% end %>

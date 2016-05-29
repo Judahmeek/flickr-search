@@ -1,6 +1,2 @@
-<% cache @images do %>
-  <div class="masonry-container">
-    <%= render partial: "image", collection: @images %>
-  </div>
-<% end %>
-
+<div id="masonry-container" class="transitions-enabled infinite-scroll masonry clearfix"></div>
+<div id="infscroll-trigger" href=<%= "/images/" + @topic + "/1" %>>FIN (insert call to action here)</div>
