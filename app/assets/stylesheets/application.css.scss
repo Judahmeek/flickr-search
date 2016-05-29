@@ -1,9 +1,14 @@
+/*
+ *= require_self
+ *= require masonry/transitions
+ */
+
 @import "normalize-rails";
 @import "bourbon";
 @import "neat";
 @import "base/base";
 
-@import "masonry/fluid";
-
 @import "modules/*";
 @import "controllers/*";
+
+@import "masonry";
