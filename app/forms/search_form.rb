@@ -1,7 +1,7 @@
 class SearchForm
   include ActiveModel::Model
 
-  attr_reader :search, :page
+  attr_reader :topic, :page
 
   def initialize(params={})
     @params = params
@@ -9,7 +9,8 @@ class SearchForm
   end
   
   def results
-    results = Rails.cache.fetch("#{@params[:search]}-#{@params[:page]}-6", expires_in: 3.hours) {flickr.photos.search(tags: @params[:search], per_page: 6, page: @params[:page])}
+    results = flickr.photos.search(tags: @params[:topic], per_page: 12, page: @params[:page])
+    
     results.map do |photo|
       info = flickr.photos.getInfo(photo_id: photo.id)
 

@@ -6,8 +6,15 @@ class SearchController < ApplicationController
   end
 
   def index
-    @form = SearchForm.new(params[:search_form])
-    @images =  @form.results
+    @topic = params[:search_form][:topic]
+  end
+  
+  def images
+    Rails.cache.fetch(params, expires_in: 3.hours) do
+      @form = SearchForm.new(params)
+      @images =  @form.results
+      render @images
+    end
   end
 
   def show
@@ -17,7 +24,7 @@ class SearchController < ApplicationController
   private
 
   def redirect_if_blank
-    if params[:search_form][:search].blank?
+    if params[:search_form][:topic].blank?
       # flash[:error] = "Cannot search empty field"
       redirect_to root_path
     end
