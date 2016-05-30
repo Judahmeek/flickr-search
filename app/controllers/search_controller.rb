@@ -13,6 +13,7 @@ class SearchController < ApplicationController
     Rails.cache.fetch(params, expires_in: 3.hours) do
       @form = SearchForm.new(params)
       @images =  @form.results
+      Rails.logger.debug(@images)
       render @images
     end
   end

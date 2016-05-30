@@ -17,7 +17,7 @@
 
 			// Do AJAX GET for the nextUrl, with callback before, success and error
 			// Simply jQuery Ajax here
-			_get : function(before, success, error) {
+			get : function(before, success, error) {
 				var $this = this;
 				$.ajax({
 					type : "GET",
@@ -35,6 +35,7 @@
 			// Initialize the scroll with callback functions
 			// Adopt pattern from http://ejohn.org/blog/learning-from-twitter/ to prevent slow performance with scroll event
 			init : function(container, before, success, error) {
+			  console.log("Init begun!");
 				var didScroll = false;
 				$(window).scroll(function() {
 					didScroll = true;
@@ -43,12 +44,13 @@
 				var $this = this;
 				setInterval(function() {
 					if (didScroll) {
+					  console.log("Caught you scrolling!");
 						didScroll = false;
 						if ($this.isNearTarget(container)) {
 							if ($this.opts.nextUrl !== "" && $this.opts.nextUrl !== undefined) {
 								// If the next url is already loaded, it will not be loaded when user continues scrolling
 								if (($this.opts.nextUrl in $this._blockUrls) == false) {
-									$this._get(before, success, error);
+									$this.get(before, success, error);
 									$this._blockUrls[$this.opts.nextUrl] = true;
 								}
 							}
@@ -60,6 +62,7 @@
 	}());
 
 $(document).on("ready page:load", function() {
+  console.log("inf-scroll script runs at least.");
   var trigger = $('#infscroll-trigger');
   var ScrollMore = window.ScrollMore;
   // Setup ScrollMore
@@ -68,7 +71,7 @@ $(document).on("ready page:load", function() {
   ScrollMore.opts.distanceToBottom = 100;
   
   var before = function(xhr) {
-      trigger.html(<img src="http://i.imgur.com/6RMhx.gif" title="Loading..."></img>);
+      trigger.html('<img src="http://i.imgur.com/6RMhx.gif" title="Loading..."></img>');
       // Show loading here;
       console.log("Before Send");
   };
@@ -92,7 +95,9 @@ $(document).on("ready page:load", function() {
       ScrollMore.opts.nextUrl = ScrollMore.opts.nextUrl.slice(0, last) + (parseInt(ScrollMore.opts.nextUrl[last]) + 1);
   };
   var error = function() {
-      alert("Something went wrong with get request: " + ScrollMore.opts.nextUrl);
+      trigger.html("Something went wrong with get request: " + ScrollMore.opts.nextUrl);
   };
+  
+  ScrollMore.get(before, success, error); //initial request
   ScrollMore.init(before, success, error);
 });
