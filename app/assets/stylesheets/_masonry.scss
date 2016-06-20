@@ -1,20 +1,22 @@
-html, body {
-  width: 100%;
-}
-
 #masonry-container {
   margin: 0 auto 20px;
   clear: both;
 }
 
 .masonry-brick {
+  //float: right;
   width: 320px;
-  margin: 0 auto;
 }
 
-img {
-  white-space: pre-line;
+a, img {
+  display: block;
+  width: 320px;
 }
+
+/**** Clearfix ****/
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
 
 .transitions-enabled.masonry,
 .transitions-enabled.masonry .masonry-brick {
