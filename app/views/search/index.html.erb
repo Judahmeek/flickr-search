@@ -1,2 +1,10 @@
-<div id="masonry-container" class="transitions-enabled infinite-scroll masonry clearfix"></div>
-<div id="infscroll-trigger" href=<%= root_url + "images/" + @topic + "/1" %>>FIN (insert call to action here)</div>
+<div id="masonry-container" class="transitions-enabled infinite-scroll masonry clearfix">
+  <%= render @images %>
+</div>
+<div id="infscroll-trigger" href=<%= root_url + "images/" + @params[:topic] + "/" + @params[:page] %>>
+  <%= form_for @form, html: {class: "hidden_search_form"}, url: search_index_path, method: :get do |f| %>
+    <%= f.hidden_field :topic, value: @params[:topic] %>
+    <%= f.hidden_field :page, value: @params[:page].to_i + 1 %>
+    <%= f.submit 'Next Page' %>
+  <% end %>
+</div>

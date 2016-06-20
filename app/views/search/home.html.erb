@@ -1,9 +1,10 @@
 <% cache @form do %>
-  <h2>Search for Flickr Photos without signing in!</h2>
-  <%= form_for @form, url: search_index_path, method: :get do |f| %>
-    <%= f.text_field :topic %>
-    <div>
+  <div class="form_wrapper">
+    <%= form_for @form, url: search_index_path, method: :get do |f| %>
+      <h3 class="form_title">Search for Flickr Photos without signing in!</h3>
+      <%= f.text_field :topic %>
+      <%= f.hidden_field :page, value: 1 %>
       <%= f.submit 'Search' %>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 <% end %>
