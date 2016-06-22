@@ -16,34 +16,10 @@ gem 'dotenv-rails'
 gem 'pg', '~> 0.18'
 gem 'puma'
 
-gem 'autoprefixer-rails'
 gem 'normalize-rails'
-gem 'bourbon'
-gem 'neat'
-gem 'bitters'
-
-group :development, :test do
-  gem 'byebug'
-  gem 'binding_of_caller'
-  gem 'better_errors'
-  gem 'pry-rails'
-  gem 'factory_girl_rails'
-  gem 'rspec-rails'
-  gem 'rails-controller-testing'
-end
-
-group :development do
-  gem 'web-console', '~> 3.0'
-  gem 'listen', '~> 3.0.5'
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-end
-
-group :test do
-  gem 'shoulda-matchers', '~> 3.1'
-end
 
 group :production do
   gem 'rails_12factor'
   gem 'readthis'
+  gem 'hiredis'
 end

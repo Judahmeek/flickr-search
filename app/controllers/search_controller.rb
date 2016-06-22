@@ -7,7 +7,7 @@ class SearchController < ApplicationController
 
   def index
     @params = params[:search_form]
-    Rails.cache.fetch(params[:search_form], expires_in: 3.hours) do
+    Rails.cache.fetch(params[:search_form]) do
       @form = SearchForm.new(params[:search_form])
       @images = @form.results
     end
@@ -15,7 +15,7 @@ class SearchController < ApplicationController
   end
   
   def images
-    Rails.cache.fetch(params, expires_in: 3.hours) do
+    Rails.cache.fetch(params) do
       @form = SearchForm.new(params)
       @images = @form.results
     end
