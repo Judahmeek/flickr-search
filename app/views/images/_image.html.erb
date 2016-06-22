@@ -1,5 +1,5 @@
 <% cache image.id do %>
  <div class="masonry-brick">
-     <%= link_to image_tag(image.image_url), search_path(image.id), title: "Title: #{image.title} &#013;Posted by: #{image.username} &#013;Date taken: #{image.date_taken}" %>
+     <%= link_to image_tag(image.image_url), search_path(image.id), title: "Title: #{sanitize(image.title.to_s)} &#013;Posted by: #{sanitize(image.username.to_s)} &#013;Date taken: #{sanitize(image.date_taken.to_s)}".html_safe %>
  </div>
 <% end %>
