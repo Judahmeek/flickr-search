@@ -18,6 +18,10 @@ gem 'puma'
 
 gem 'normalize-rails'
 
+group :development do
+  gem 'listen'
+end
+
 group :production do
   gem 'rails_12factor'
   gem 'readthis'
