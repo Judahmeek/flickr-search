@@ -23,7 +23,7 @@ class SearchController < ApplicationController
   end
 
   def show
-    @image = Image.find_by(id: params[:id])
+    @image = Image.find_by(params[:id])
   end
 
   private
