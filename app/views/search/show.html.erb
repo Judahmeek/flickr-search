@@ -1,3 +1,16 @@
 <% cache "#{@image.image_url}" do %>
-  <%= image_tag @image.image_url class: "single-image" title: "Title: #{@image.title}&#013;Posted by: #{@image.username}&#013;Date taken: #{@image.date_taken}" %>
+  <div id="single-image">
+    <%= image_tag @image.image_url %>
+    <div id="image-details">
+      <p id="image-title">
+        <%= "Title: #{@image.title}" %>
+      </p>
+      <p id="image-author">
+        <%= "Posted by: #{@image.username}" %>
+      </p>
+      <p id="image-date">
+        <%= "Date taken: #{@image.date_taken}" %>"
+      </p>
+    </div>
+  </div>
 <% end %>
