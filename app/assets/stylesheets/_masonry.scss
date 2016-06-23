@@ -3,12 +3,8 @@
   clear: both;
 }
 
-.masonry-brick {
-  //float: right;
-  width: 320px;
-}
-
-a, img {
+.masonry-brick,
+.masonry-brick > img {
   display: block;
   width: 320px;
 }
