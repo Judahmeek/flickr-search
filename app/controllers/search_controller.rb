@@ -11,7 +11,7 @@ class SearchController < ApplicationController
       @form = SearchForm.new(params[:search_form])
       @images = @form.results
     end
-    @images
+    @params[:next] = (@params[:page].to_i + 1).to_s
   end
   
   def images
