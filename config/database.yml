@@ -14,6 +14,10 @@ test:
   <<: *default
   database: flickr-search_test
 
+staging:
+  <<: *default
+  database: flcikr-search_staging
+
 production:
   <<: *default
   database: flickr-search_production
