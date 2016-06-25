@@ -7,17 +7,16 @@ class SearchController < ApplicationController
 
   def index
     @params = params[:search_form]
-    Rails.cache.fetch(params[:search_form]) do
-      @form = SearchForm.new(params[:search_form])
-      @images = @form.results
+    @form = SearchForm.new(params[:search_form])
+    @images = Rails.cache.fetch("#{@params[:topic]}#{@params[:page]}") do
+      @form.results
     end
     @params[:next] = (@params[:page].to_i + 1).to_s
   end
   
   def images
-    Rails.cache.fetch(params) do
-      @form = SearchForm.new(params)
-      @images = @form.results
+    @images = Rails.cache.fetch("#{params[:topic]}#{params[:page]}") do
+      SearchForm.new(params).results
     end
     render @images
   end
