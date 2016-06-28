@@ -1,0 +1,8 @@
+@import "normalize-rails";
+@import "modules/*";
+@import "controllers/Search/*";
+@import "masonry";
+
+@-ms-viewport{
+  width: device-width;
+}
