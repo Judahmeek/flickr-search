@@ -2,17 +2,18 @@
   background-color: #f8f8f8;
   height: calc(100% - 67px);
   position: relative;
+  text-align: center;
 }
 
 .new_search_form {
-  padding-top: 16px;
-  position: absolute;
-  text-align: center;
-  top: 50%;
-  left: 50%;
+  display: inline-block;
   font-size: 24px;
-  margin-top: -42px;
-  margin-left: -291px; //Only good down to 600px width
+  padding-top: 10%;
+  text-align: center;
+  
+  > input[type="submit"] {
+    margin-top: .5em;
+  }
 }
 
 .form_title {
@@ -21,7 +22,6 @@
 }
 
 #search_form_topic {
-  width: 400px;
   border-radius: 4px;
   border-color: #e0e0e0;
   border-style: solid;
@@ -42,32 +42,3 @@
   }
 }
 
-#infscroll-trigger {
-  text-align: center;
-}
-
-#index_spinner {
-  display: inline;
-  width: 35px;
-}
-
-#single-image {
-  text-align: center;
-}
-
-#single-image > img {
-  width: 100%;
-}
-
-#image-details {
-  background-color: #f2f2f2;
-  border-radius: 4px;
-  font-size: 16px;
-  max-width: 100%;
-  padding: 1px 0;
-}
-
-#image-title {
-  font-weight: bold;
-  margin-top: 1em;
-}
