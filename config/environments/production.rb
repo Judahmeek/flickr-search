@@ -64,7 +64,7 @@ Rails.application.configure do
   config.cache_store = :readthis_store, {
     expires_in: 3.hours.to_i,
     namespace: 'cache',
-    redis: { url: ENV.fetch('REDIS_URL'), driver: :hiredis }
+    redis: { url: ENV['REDIS_URL'], driver: :hiredis }
   }
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
