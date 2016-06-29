@@ -6,3 +6,9 @@
   display: inline;
   width: 35px;
 }
+
+.hidden_search_form {
+  > input[type="submit"] {
+    font-size: 16px;
+  }
+}
