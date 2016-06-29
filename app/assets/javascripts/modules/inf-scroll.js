@@ -86,7 +86,7 @@ $(document).on("ready page:load", function() {
     ScrollMore.opts.distanceToBottom = 100;
     
     var before = function(xhr) {
-        trigger.html('<img id="index_spinner" src="http://i.imgur.com/6RMhx.gif" title="Loading..."></img>');
+        trigger.html('<img id="index_spinner" src="https://i.imgur.com/6RMhx.gif" title="Loading..."></img>');
     };
     
     // data is the content of the next url loaded
